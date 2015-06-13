@@ -1,0 +1,16 @@
+---
+- name: Checkout NVM
+  git: repo=https://github.com/creationix/nvm.git
+       dest=/home/{{ ansible_user_id }}/.nvm
+       version=v0.25.4
+
+- name: Source NVM
+  sudo: yes
+  copy: src=files/nvm.sh
+        dest=/etc/profile.d/nvm.sh
+
+- name: Install NPM v0.12.5
+  shell: nvm install v0.12.5
+  args:
+    executable: /usr/bin/zsh
+    creates: /home/{{ ansible_user_id }}/.nvm/versions/node/v0.12.5/bin/node

@@ -1,0 +1,19 @@
+---
+- name: Change Shell to ZSH
+  sudo: yes
+  user: name={{ ansible_user_id }} 
+        shell=/usr/bin/zsh
+
+- name: Let ZSH Source Profile Files
+  sudo: yes
+  copy: src=files/zshenv
+        dest=/etc/zsh/zshenv
+
+- name: Checkout Oh My ZSH
+  git: repo=git://github.com/robbyrussell/oh-my-zsh.git
+       dest=/home/{{ ansible_user_id }}/.oh-my-zsh
+       accept_hostkey=yes
+
+- name: Set .zshrc
+  copy: src=files/.zshrc 
+        dest=/home/{{ ansible_user_id }}/.zshrc

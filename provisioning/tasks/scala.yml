@@ -1,0 +1,29 @@
+---
+- name: Download Scala Zip
+  sudo: yes
+  get_url: url=http://downloads.typesafe.com/scala/2.11.7/scala-2.11.7.tgz
+           dest=/opt/tarballs/scala-2.11.7.tgz
+
+- name: Extract Scala
+  sudo: yes
+  unarchive: src=/opt/tarballs/scala-2.11.7.tgz
+             dest=/opt
+             creates=/opt/scala-2.11.7
+             copy=no
+
+- name: Make Scala World Accessible
+  sudo: yes
+  file: src=/opt/scala-2.11.7/bin/scala
+        dest=/usr/local/bin/scala
+        owner=root
+        group=root
+        state=link
+        
+- name: Download Sbt Deb
+  sudo: yes
+  get_url: url=https://dl.bintray.com/sbt/debian/sbt-0.13.8.deb
+           dest=/opt/debs/sbt-0.13.8.deb
+
+- name: Install Sbt
+  sudo: yes
+  apt: deb=/opt/debs/sbt-0.13.8.deb

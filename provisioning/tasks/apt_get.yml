@@ -1,0 +1,73 @@
+---
+- name: Install apt-get repositories
+  sudo: yes
+  apt_repository: repo='{{ item }}'
+                  state=present
+  with_items:
+    - ppa:stefansundin/truecrypt
+    - ppa:ansible/ansible
+    - ppa:webupd8team/tor-browser
+    - deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse
+    - deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse
+    - deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
+    - deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
+
+- name: Install Desktop
+  sudo: yes
+  apt: name=xubuntu-desktop
+       state=latest
+       update_cache=yes
+
+- name: Install Common Programs
+  sudo: yes
+  apt: name='{{ item }}'
+       state=latest
+  with_items:
+    - ansible
+    - aptitude
+    - asunder
+    - autojump
+    - baobab
+    - brasero
+    - chromium-browser
+    - clementine
+    - command-not-found
+    - command-not-found-data
+    - curl
+    - firefox
+    - flashplugin-installer
+    - gedit
+    - git
+    - gstreamer1.0-plugins-bad
+    - gstreamer1.0-plugins-base
+    - gstreamer1.0-plugins-good
+    - gstreamer1.0-plugins-ugly
+    - keepassx
+    - lftp
+    - libreoffice
+    - libsmpeg0
+    - lynx
+    - mcomix
+    - mplayer
+    - network-manager
+    - okular
+    - p7zip-full
+    - redshift-gtk
+    - secure-delete
+    - software-properties-common
+    - soundconverter
+    - ssh
+    - terminator
+    - thunderbird
+    - tor-browser
+    - unattended-upgrades
+    - unrar
+    - unzip
+    - vim
+    - vlc
+    - wget
+    - zsh
+
+- name: Upgrade Packages
+  sudo: yes
+  apt: upgrade=safe

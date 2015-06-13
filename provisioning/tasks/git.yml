@@ -1,0 +1,3 @@
+- name: Configure Git
+  template: src=templates/.gitconfig
+            dest=/home/{{ ansible_user_id }}/.gitconfig

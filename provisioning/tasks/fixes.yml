@@ -1,0 +1,4 @@
+---
+- name: Fix Local Flash Files Not Playing
+  copy: src=files/.mime.types
+        dest=/home/{{ ansible_user_id }}/.mime.types

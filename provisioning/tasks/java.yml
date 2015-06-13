@@ -1,0 +1,83 @@
+---
+- name: Install Webupd Java PPA
+  sudo: yes
+  apt_repository: repo=ppa:webupd8team/java
+                  state=present
+  register: java
+
+- name: Accept Oracle 7 Terms
+  sudo: yes
+  shell: echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+  when: java.changed
+
+- name: Accept Oracle 8 Terms
+  sudo: yes
+  shell: echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+  when: java.changed
+
+- name: Install Javas
+  sudo: yes
+  apt: name={{ item }}
+       state=latest
+  with_items:
+    - oracle-java7-installer
+    - oracle-java8-installer
+    - oracle-java8-set-default
+
+- name: Download Gradle Zip
+  sudo: yes
+  get_url: url=https://services.gradle.org/distributions/gradle-2.4-all.zip
+           dest=/opt/tarballs/gradle-2.4-all.zip
+
+- name: Extract Gradle
+  sudo: yes
+  unarchive: src=/opt/tarballs/gradle-2.4-all.zip
+             dest=/opt
+             creates=/opt/gradle-2.4
+             copy=no
+
+- name: Make Gradle World Accessible
+  sudo: yes
+  file: src=/opt/gradle-2.4/bin/gradle
+        dest=/usr/local/bin/gradle
+        owner=root
+        group=root
+        state=link
+
+- name: Install Leiningen
+  sudo: yes
+  get_url: url=https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+             dest=/usr/local/bin/lein
+
+- name: Make Leiningen World Accessible
+  sudo: yes
+  file: dest=/usr/local/bin/lein
+        owner=root
+        group=root
+        mode=0755
+
+- name: Download Intellij Tarball
+  sudo: yes
+  get_url: url=https://download.jetbrains.com/idea/ideaIC-14.1.4.tar.gz
+           dest=/opt/tarballs/ideaIC-14.1.4.tar.gz
+           validate_certs=no
+
+- name: Extract Intellij
+  sudo: yes
+  unarchive: src=/opt/tarballs/ideaIC-14.1.4.tar.gz
+             dest=/opt
+             creates=/opt/idea-IC-141.1532.4
+             copy=no
+
+- name: Create Intellij Desktop Entry
+  sudo: yes
+  copy: src=files/jetbrains-idea-ce.desktop
+        dest=/usr/share/applications/jetbrains-idea-ce.desktop
+
+- name: Make Intellij World Accessible
+  sudo: yes
+  file: src=/opt/idea-IC-141.1532.4/bin/idea.sh
+        dest=/usr/local/bin/idea
+        owner=root
+        group=root
+        state=link

@@ -1,0 +1,11 @@
+---
+- name: Set Resolv.conf.auto
+  sudo: yes
+  command: cp /etc/resolv.conf /etc/resolv.conf.auto
+  args:
+    creates: /etc/resolv.conf.auto
+
+- name: Set Dhclient.conf
+  sudo: yes
+  copy: src=files/dhclient.conf
+        dest=/etc/dhcp/dhclient.conf

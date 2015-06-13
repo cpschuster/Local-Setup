@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+    - include: tasks/dns.yml
+    - include: tasks/apt_get.yml
+    - include: tasks/opt.yml
+    - include: tasks/git.yml
+    - include: tasks/zsh.yml
+    - include: tasks/java.yml
+    - include: tasks/scala.yml
+    - include: tasks/ruby.yml
+    - include: tasks/javascript.yml
+    - include: tasks/virtualization.yml
+    - include: tasks/fixes.yml
+    - include: tasks/misc.yml
+    - include: tasks/games.yml

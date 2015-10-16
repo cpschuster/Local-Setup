@@ -33,6 +33,7 @@ programs = [
   'network-manager',
   'okular',
   'p7zip-full', 
+  'python2.7',
   'redshift-gtk',
   'secure-delete', 
   'sgt-puzzles',

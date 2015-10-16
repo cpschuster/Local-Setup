@@ -11,6 +11,12 @@
     - deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse
     - deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
     - deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
+    - deb http://apt.syncthing.net/ syncthing release
+
+- name: Add repository keys
+  sudo: yes
+  apt_key: url='https://syncthing.net/release-key.txt'
+           state=present
 
 - name: Install Desktop
   sudo: yes
@@ -60,6 +66,7 @@
     - software-properties-common
     - soundconverter
     - ssh
+    - syncthing
     - terminator
     - thunderbird
     - tor-browser

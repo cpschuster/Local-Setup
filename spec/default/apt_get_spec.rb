@@ -40,6 +40,7 @@ programs = [
   'software-properties-common',
   'soundconverter',
   'ssh',
+  'syncthing',
   'terminator', 
   'thunderbird', 
   'tor-browser',

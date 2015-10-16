@@ -1,5 +1,5 @@
 [core]
 	editor = /usr/bin/vim
 [user]
-	email = {{ ansible_user_id }}@gmail.com
-	name = {{ ansible_user_id }}
+	email = github@peace.neomailbox.net
+	name = cpschuster

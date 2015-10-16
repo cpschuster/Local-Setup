@@ -27,5 +27,5 @@ describe command('gradle --version') do
 end
 
 describe command('LEIN_ROOT=true lein -v') do
-    its(:stdout) { should contain('Leiningen 2.5.2') }
+    its(:stdout) { should contain('Leiningen 2.5.') }
 end

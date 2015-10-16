@@ -43,6 +43,7 @@
     - gstreamer1.0-plugins-good
     - gstreamer1.0-plugins-ugly
     - keepassx
+    - keepass2
     - lftp
     - libreoffice
     - libsmpeg0
@@ -60,11 +61,13 @@
     - terminator
     - thunderbird
     - tor-browser
+    - truecrypt
     - unattended-upgrades
     - unrar
     - unzip
     - vim
     - vlc
+    - xdotool
     - wget
     - zsh
 

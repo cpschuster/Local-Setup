@@ -22,6 +22,7 @@ programs = [
   'gstreamer1.0-plugins-good', 
   'gstreamer1.0-plugins-ugly', 
   'keepassx', 
+  'keepass2', 
   'lftp', 
   'libsmpeg0',
   'libreoffice',
@@ -40,12 +41,14 @@ programs = [
   'terminator', 
   'thunderbird', 
   'tor-browser',
+  'truecrypt',
   'unattended-upgrades', 
   'unrar', 
   'unzip', 
   'vim',
   'vlc', 
   'wget', 
+  'xdotool',
   'xubuntu-desktop',
   'zsh'
 ]

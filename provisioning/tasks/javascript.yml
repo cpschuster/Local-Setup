@@ -14,3 +14,12 @@
   args:
     executable: /usr/bin/zsh
     creates: /home/{{ ansible_user_id }}/.nvm/versions/node/v0.12.5/bin/node
+
+- name: Download Atom Deb
+  sudo: yes
+  get_url: url=https://atom.io/download/deb
+           dest=/opt/debs/atom-amd64.deb
+
+- name: Install Atom
+  sudo: yes
+  apt: deb=/opt/debs/atom-amd64.deb

@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 programs = [
+  'anacron',
   'ansible',
   'aptitude',
   'asunder',
@@ -8,6 +9,10 @@ programs = [
   'baobab',
   'brasero',
   'chromium-browser',
+  'clamav',
+  'clamav-daemon',
+  'clamav-freshclam',
+  'clamtk',
   'clementine',
   'command-not-found',
   'command-not-found-data',
@@ -17,7 +22,7 @@ programs = [
   'flashplugin-installer',
   'gedit',
   'git',
-  'gnome-disk-utility', 
+  'gnome-disk-utility',
   'gstreamer1.0-plugins-bad',
   'gstreamer1.0-plugins-base',
   'gstreamer1.0-plugins-good',

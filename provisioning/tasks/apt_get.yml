@@ -29,12 +29,17 @@
   apt: name='{{ item }}'
        state=latest
   with_items:
+    - anacron
     - ansible
     - aptitude
     - asunder
     - autojump
     - baobab
     - brasero
+    - clamav
+    - clamav-daemon
+    - clamav-freshclam
+    - clamtk
     - chromium-browser
     - clementine
     - command-not-found

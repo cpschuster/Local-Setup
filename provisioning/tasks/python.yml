@@ -1,0 +1,12 @@
+- name: Install Pip
+  sudo: yes
+  easy_install: name=pip
+
+- name: Install Virtualenvwrapper
+  sudo: yes
+  pip: name=virtualenvwrapper
+
+- name: Set System To Use virtualenvwrapper
+  sudo: yes
+  copy: src=files/virtualenv.sh
+        dest=/etc/profile.d/virtualenv.sh

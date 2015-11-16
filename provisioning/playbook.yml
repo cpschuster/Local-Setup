@@ -9,6 +9,7 @@
     - include: tasks/java.yml
     - include: tasks/scala.yml
     - include: tasks/ruby.yml
+    - include: tasks/python.yml
     - include: tasks/javascript.yml
     - include: tasks/virtualization.yml
     - include: tasks/fixes.yml

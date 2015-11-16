@@ -57,6 +57,7 @@
     - haskell-platform
     - keepassx
     - keepass2
+    - keychain
     - lftp
     - libreoffice
     - libsmpeg0

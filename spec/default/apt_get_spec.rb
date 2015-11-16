@@ -30,6 +30,7 @@ programs = [
   'haskell-platform',
   'keepassx',
   'keepass2',
+  'keychain',
   'lftp',
   'libsmpeg0',
   'libreoffice',

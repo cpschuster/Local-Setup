@@ -20,7 +20,7 @@
 
 - name: Install Desktop
   sudo: yes
-  apt: name=xubuntu-desktop
+  apt: name=ubuntu-desktop
        state=latest
        update_cache=yes
 
@@ -44,6 +44,7 @@
     - flashplugin-installer
     - gedit
     - git
+    - gnome-disk-utility
     - gstreamer1.0-plugins-bad
     - gstreamer1.0-plugins-base
     - gstreamer1.0-plugins-good

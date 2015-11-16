@@ -44,6 +44,7 @@ programs = [
   'secure-delete',
   'sgt-puzzles',
   'software-properties-common',
+  'software-properties-gtk',
   'soundconverter',
   'ssh',
   'syncthing',

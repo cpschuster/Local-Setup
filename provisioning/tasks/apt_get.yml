@@ -68,6 +68,7 @@
     - okular
     - p7zip-full
     - python2.7
+    - python-setuptools
     - redshift-gtk
     - secure-delete
     - software-properties-common

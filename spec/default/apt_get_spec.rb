@@ -41,6 +41,7 @@ programs = [
   'okular',
   'p7zip-full',
   'python2.7',
+  'python-setuptools',
   'redshift-gtk',
   'secure-delete',
   'sgt-puzzles',

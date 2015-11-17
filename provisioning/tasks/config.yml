@@ -1,0 +1,27 @@
+---
+- name: Create Terminator Config Directory
+  file: path=/home/{{ ansible_user_id }}/.config/terminator state=directory
+
+- name: Configure Terminator
+  copy: src=files/terminator.config
+        dest=/home/{{ ansible_user_id }}/.config/terminator/config
+
+- name: Set Launchers
+  shell: >
+    gsettings set com.canonical.Unity.Launcher favorites "[
+    'ubiquity.desktop',
+    'chromium-browser.desktop',
+    'firefox.desktop',
+    'terminator.desktop',
+    'keepassx.desktop',
+    'truecrypt.desktop',
+    'clementine.desktop']"
+
+- name: Create LightDM Directory
+  sudo: yes
+  file: path=/etc/lightdm/lightdm.conf.d state=directory
+
+- name: Enable Autologin
+  sudo: yes
+  template: src=templates/autologin.conf
+            dest=/etc/lightdm/lightdm.conf.d/50_{{ ansible_user_id }}.conf

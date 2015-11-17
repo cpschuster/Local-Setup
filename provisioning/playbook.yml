@@ -14,4 +14,5 @@
     - include: tasks/virtualization.yml
     - include: tasks/fixes.yml
     - include: tasks/misc.yml
+    - include: tasks/config.yml
     - include: tasks/games.yml

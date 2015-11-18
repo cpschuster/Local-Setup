@@ -7,15 +7,28 @@
         dest=/home/{{ ansible_user_id }}/.config/terminator/config
 
 - name: Set Launchers
-  shell: >
+  command: >
     gsettings set com.canonical.Unity.Launcher favorites "[
-    'ubiquity.desktop',
+    'nautilus.desktop',
     'chromium-browser.desktop',
     'firefox.desktop',
     'terminator.desktop',
     'keepassx.desktop',
     'truecrypt.desktop',
-    'clementine.desktop']"
+    'clementine.desktop',
+    'jetbrains-idea-ce.desktop']"
+
+- name: Stop Selling Me Stuff
+  command: gsettings set com.canonical.Unity.ApplicationsLens display-available-apps false
+
+- name: Stop Back Dooring Me
+  command: gsettings set com.canonical.Unity.Lenses remote-content-search none
+
+- name: Remove Spyware
+  sudo: yes
+  apt: name=unity-lens-video
+       state=absent
+       purge=yes
 
 - name: Create LightDM Directory
   sudo: yes

@@ -56,6 +56,7 @@ programs = [
   'truecrypt',
   'ubuntu-desktop',
   'unattended-upgrades',
+  'unity-tweak-tool',
   'unrar',
   'unzip',
   'vim',

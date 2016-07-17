@@ -25,16 +25,16 @@
   command: gsettings set com.canonical.Unity.Lenses remote-content-search none
 
 - name: Remove Spyware
-  sudo: yes
+  become: true
   apt: name=unity-lens-video
        state=absent
        purge=yes
 
 - name: Create LightDM Directory
-  sudo: yes
+  become: true
   file: path=/etc/lightdm/lightdm.conf.d state=directory
 
 - name: Enable Autologin
-  sudo: yes
+  become: true
   template: src=templates/autologin.conf
             dest=/etc/lightdm/lightdm.conf.d/50_{{ ansible_user_id }}.conf

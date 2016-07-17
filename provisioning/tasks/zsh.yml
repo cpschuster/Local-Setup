@@ -1,11 +1,11 @@
 ---
 - name: Change Shell to ZSH
-  sudo: yes
+  become: true
   user: name={{ ansible_user_id }} 
         shell=/usr/bin/zsh
 
 - name: Let ZSH Source Profile Files
-  sudo: yes
+  become: true
   copy: src=files/zshenv
         dest=/etc/zsh/zshenv
 

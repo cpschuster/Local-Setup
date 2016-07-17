@@ -1,16 +1,16 @@
 ---
 - name: Import Stone Soup Repo
-  sudo: yes
-  apt_repository: repo='deb https://crawl.develz.org/debian crawl 0.16'
+  become: true
+  apt_repository: repo='deb https://crawl.develz.org/debian crawl 0.18'
                   state=present
 
 - name: Import Stone Soup Keys
-  sudo: yes
+  become: true
   apt_key: url=https://crawl.develz.org/debian/pubkey
            state=present
 
 - name: Install Games
-  sudo: yes
+  become: true
   apt: name={{ item }}
        state=latest
        update_cache=yes

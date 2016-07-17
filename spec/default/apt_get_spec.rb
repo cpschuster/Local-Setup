@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 programs = [
+  'amarok',
   'anacron',
   'ansible',
   'aptitude',
@@ -8,6 +9,7 @@ programs = [
   'autojump',
   'baobab',
   'brasero',
+  'calibre',
   'chromium-browser',
   'clamav',
   'clamav-daemon',
@@ -22,6 +24,7 @@ programs = [
   'flashplugin-installer',
   'gedit',
   'git',
+  'gimp',
   'gnome-disk-utility',
   'gstreamer1.0-plugins-bad',
   'gstreamer1.0-plugins-base',
@@ -39,6 +42,7 @@ programs = [
   'mplayer',
   'network-manager',
   'okular',
+  'openssh-server',
   'p7zip-full',
   'python2.7',
   'python-setuptools',
@@ -48,6 +52,7 @@ programs = [
   'software-properties-common',
   'software-properties-gtk',
   'soundconverter',
+  'soundkonverter',
   'ssh',
   'syncthing',
   'terminator',
@@ -62,7 +67,9 @@ programs = [
   'vim',
   'vlc',
   'wget',
+  'wine',
   'xdotool',
+  'xournal',
   'zsh'
 ]
 

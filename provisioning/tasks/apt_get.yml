@@ -1,6 +1,6 @@
 ---
 - name: Install apt-get repositories
-  sudo: yes
+  become: true
   apt_repository: repo='{{ item }}'
                   state=present
   with_items:
@@ -14,21 +14,22 @@
     - deb http://apt.syncthing.net/ syncthing release
 
 - name: Add repository keys
-  sudo: yes
+  become: true
   apt_key: url='https://syncthing.net/release-key.txt'
            state=present
 
 - name: Install Desktop
-  sudo: yes
+  become: true
   apt: name=ubuntu-desktop
        state=latest
        update_cache=yes
 
 - name: Install Common Programs
-  sudo: yes
+  become: true
   apt: name='{{ item }}'
        state=latest
   with_items:
+    - amarok
     - anacron
     - ansible
     - aptitude
@@ -36,6 +37,7 @@
     - autojump
     - baobab
     - brasero
+    - calibre
     - clamav
     - clamav-daemon
     - clamav-freshclam
@@ -49,6 +51,7 @@
     - flashplugin-installer
     - gedit
     - git
+    - gimp
     - gnome-disk-utility
     - gstreamer1.0-plugins-bad
     - gstreamer1.0-plugins-base
@@ -66,6 +69,7 @@
     - mplayer
     - network-manager
     - okular
+    - openssh-server
     - p7zip-full
     - python2.7
     - python-setuptools
@@ -74,6 +78,7 @@
     - software-properties-common
     - software-properties-gtk
     - soundconverter
+    - soundkonverter
     - ssh
     - syncthing
     - terminator
@@ -88,8 +93,10 @@
     - vlc
     - xdotool
     - wget
+    - wine
+    - xournal
     - zsh
 
 - name: Upgrade Packages
-  sudo: yes
+  become: true
   apt: upgrade=safe

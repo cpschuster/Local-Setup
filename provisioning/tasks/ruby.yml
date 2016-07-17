@@ -1,42 +1,42 @@
 ---
 - name: Download Chruby Tarball
-  sudo: yes
+  become: true
   get_url: url=https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
            dest=/opt/tarballs/chruby-0.3.9.tar.gz
 
 - name: Extract Chruby
-  sudo: yes
+  become: true
   unarchive: src=/opt/tarballs/chruby-0.3.9.tar.gz
              dest=/opt
              creates=/opt/chruby-0.3.9
              copy=no
 
 - name: Make Chruby
-  sudo: yes
+  become: true
   command: make install
   args:
     chdir: /opt/chruby-0.3.9
     creates: /usr/local/share/chruby/chruby.sh
 
 - name: Set System To Use Chruby
-  sudo: yes
+  become: true
   copy: src=files/chruby.sh
         dest=/etc/profile.d/chruby.sh
 
 - name: Download Ruby-Install Tarball
-  sudo: yes
+  become: true
   get_url: url=https://github.com/postmodern/ruby-install/archive/v0.5.0.tar.gz
            dest=/opt/tarballs/ruby-install-0.5.0.tar.gz
 
 - name: Extract Ruby-Install
-  sudo: yes
+  become: true
   unarchive: src=/opt/tarballs/ruby-install-0.5.0.tar.gz
              dest=/opt
              creates=/opt/ruby-install-0.5.0
              copy=no
 
 - name: Make Ruby-Install
-  sudo: yes
+  become: true
   command: make install
   args:
     chdir: /opt/ruby-install-0.5.0

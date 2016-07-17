@@ -1,8 +1,8 @@
 ---
 - name: Creates Tarballs Directory
-  sudo: yes
+  become: true
   file: path=/opt/tarballs state=directory
 
 - name: Creates Debs Directory
-  sudo: yes
+  become: true
   file: path=/opt/debs state=directory

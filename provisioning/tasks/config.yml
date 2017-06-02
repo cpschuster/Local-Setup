@@ -16,7 +16,7 @@
     'keepassx.desktop',
     'truecrypt.desktop',
     'clementine.desktop',
-    'jetbrains-idea-ce.desktop']"
+    'thunderbird.desktop']"
 
 - name: Stop Selling Me Stuff
   command: gsettings set com.canonical.Unity.ApplicationsLens display-available-apps false

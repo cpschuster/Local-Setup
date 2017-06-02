@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe user('vagrant') do
+describe user('ubuntu') do
   it { should have_login_shell '/usr/bin/zsh' }
 end
 
-describe file('/home/vagrant/.oh-my-zsh') do
+describe file('/home/ubuntu/.oh-my-zsh') do
   it { should be_directory }
 end
 
-describe file('/home/vagrant/.zshrc') do
+describe file('/home/ubuntu/.zshrc') do
   it { should be_file }
 end
 

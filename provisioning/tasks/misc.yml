@@ -6,12 +6,3 @@
 - name: Copy Redshift configuration
   copy: src=files/redshift.conf
         dest=/home/{{ ansible_user_id }}/.config/redshift.conf
-
-- name: Download Gargoyle Deb
-  become: true
-  get_url: url=https://garglk.googlecode.com/files/gargoyle_2011.1-0ubuntu1_amd64.deb
-           dest=/opt/debs/gargoyle_2011.1-0ubuntu1_amd64.deb
-
-- name: Install Gargoyle
-  become: true
-  apt: deb=/opt/debs/gargoyle_2011.1-0ubuntu1_amd64.deb

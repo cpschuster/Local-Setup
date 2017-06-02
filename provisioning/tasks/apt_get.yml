@@ -4,19 +4,10 @@
   apt_repository: repo='{{ item }}'
                   state=present
   with_items:
-    - ppa:stefansundin/truecrypt
-    - ppa:ansible/ansible
-    - ppa:webupd8team/tor-browser
     - deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse
     - deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse
     - deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
     - deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
-    - deb http://apt.syncthing.net/ syncthing release
-
-- name: Add repository keys
-  become: true
-  apt_key: url='https://syncthing.net/release-key.txt'
-           state=present
 
 - name: Install Desktop
   become: true
@@ -49,6 +40,7 @@
     - curl
     - firefox
     - flashplugin-installer
+    - gargoyle-free
     - gedit
     - git
     - gimp
@@ -68,32 +60,35 @@
     - mcomix
     - mplayer
     - network-manager
+    - net-tools
     - okular
     - openssh-server
     - p7zip-full
     - python2.7
     - python-setuptools
+    - ruby
     - redshift-gtk
     - secure-delete
+    - sgt-puzzles
     - software-properties-common
     - software-properties-gtk
     - soundconverter
-    - soundkonverter
     - ssh
     - syncthing
     - terminator
     - thunderbird
-    - tor-browser
-    - truecrypt
+    - torbrowser-launcher
+    - ubuntu-make
     - unattended-upgrades
     - unity-tweak-tool
     - unrar
     - unzip
     - vim
+    - virtualbox
     - vlc
     - xdotool
     - wget
-    - wine
+    - wine-stable
     - xournal
     - zsh
 

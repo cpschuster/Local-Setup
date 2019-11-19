@@ -47,6 +47,7 @@
     - flac
     - flashplugin-installer
     - fonts-firacode
+    - "g++"
     - gargoyle-free
     - gedit
     - git
@@ -79,6 +80,7 @@
     - libreoffice
     - libsmpeg0
     - lynx
+    - make
     - mplayer
     - network-manager
     - net-tools
@@ -90,6 +92,8 @@
     - playonlinux
     - python2.7
     - python-setuptools
+    - qt5-default
+    - qt5-qmake
     - rake
     - recordmydesktop
     - redshift-gtk
@@ -100,6 +104,7 @@
     - software-properties-common
     - software-properties-gtk
     - soundconverter
+    - sqlite3
     - ssh
     - ssh-askpass
     - sshpass

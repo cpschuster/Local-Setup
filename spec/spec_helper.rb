@@ -27,6 +27,8 @@ options = Net::SSH::Config.for(host, [config.path])
 
 options[:user] ||= Etc.getLogin
 
+ENV['USERNAME'] = options[:user]
+
 set :host,        options[:host_name] || host
 set :ssh_options, options
 

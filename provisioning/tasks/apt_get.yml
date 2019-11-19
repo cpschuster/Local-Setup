@@ -9,12 +9,6 @@
     - deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
     - deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse
 
-- name: Install Desktop
-  become: true
-  apt: name=ubuntu-desktop
-       state=latest
-       update_cache=yes
-
 - name: Install Common Programs
   become: true
   apt: name='{{ item }}'
@@ -25,10 +19,18 @@
     - ansible
     - aptitude
     - asunder
+    - autoconf
     - autojump
     - baobab
+    - bison
+    - bleachbit
+    - bluetooth
+    - bluez
     - brasero
+    - build-essential
+    - ca-certificates
     - calibre
+    - cdparanoia
     - clamav
     - clamav-daemon
     - clamav-freshclam
@@ -38,58 +40,90 @@
     - command-not-found
     - command-not-found-data
     - curl
+    - diffutils
+    - evince
+    - ffmpeg
     - firefox
+    - flac
     - flashplugin-installer
+    - fonts-firacode
     - gargoyle-free
     - gedit
     - git
     - gimp
     - gnome-disk-utility
+    - gnome-keyring
+    - gnome-settings-daemon
+    - gnome-tweaks
+    - gnupg
+    - gparted
     - gstreamer1.0-plugins-bad
     - gstreamer1.0-plugins-base
     - gstreamer1.0-plugins-good
     - gstreamer1.0-plugins-ugly
+    - gzip
     - haskell-platform
+    - imagemagick
     - keepassx
     - keepass2
     - keychain
+    - kdenlive
+    - libgdbm5
+    - libgdbm-dev
+    - libffi-dev
+    - libncurses5-dev
+    - libreadline-dev
+    - libssl-dev
+    - libyaml-dev
     - lftp
     - libreoffice
     - libsmpeg0
     - lynx
-    - mcomix
     - mplayer
     - network-manager
     - net-tools
+    - octave
     - okular
+    - openjdk-11-jdk
     - openssh-server
     - p7zip-full
+    - playonlinux
     - python2.7
     - python-setuptools
-    - ruby
+    - rake
+    - recordmydesktop
     - redshift-gtk
+    - rsync
+    - ruby
     - secure-delete
     - sgt-puzzles
     - software-properties-common
     - software-properties-gtk
     - soundconverter
     - ssh
+    - ssh-askpass
+    - sshpass
     - syncthing
     - terminator
     - thunderbird
     - torbrowser-launcher
+    - tree
     - ubuntu-make
     - unattended-upgrades
     - unity-tweak-tool
     - unrar
+    - unar
     - unzip
+    - vagrant
     - vim
     - virtualbox
     - vlc
     - xdotool
     - wget
     - wine-stable
+    - winetricks
     - xournal
+    - zlib1g-dev
     - zsh
 
 - name: Upgrade Packages

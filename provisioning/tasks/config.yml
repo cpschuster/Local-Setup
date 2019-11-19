@@ -5,28 +5,3 @@
 - name: Configure Terminator
   copy: src=files/terminator.config
         dest=/home/{{ ansible_user_id }}/.config/terminator/config
-
-- name: Set Launchers
-  command: >
-    gsettings set com.canonical.Unity.Launcher favorites "[
-    'nautilus.desktop',
-    'chromium-browser.desktop',
-    'firefox.desktop',
-    'terminator.desktop',
-    'keepassx.desktop',
-    'truecrypt.desktop',
-    'clementine.desktop',
-    'thunderbird.desktop']"
-
-- name: Stop Selling Me Stuff
-  command: gsettings set com.canonical.Unity.ApplicationsLens display-available-apps false
-
-- name: Stop Back Dooring Me
-  command: gsettings set com.canonical.Unity.Lenses remote-content-search none
-
-- name: Remove Spyware
-  become: true
-  apt: name=unity-lens-video
-       state=absent
-       purge=yes
-

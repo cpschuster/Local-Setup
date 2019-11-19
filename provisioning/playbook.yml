@@ -1,7 +1,6 @@
 ---
 - hosts: all
   tasks:
-    - include: tasks/dns.yml
     - include: tasks/apt_get.yml
     - include: tasks/opt.yml
     - include: tasks/git.yml
